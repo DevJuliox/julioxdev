@@ -1,0 +1,85 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const socialLinks = [
+  { name: 'TikTok', icon: 'tiktoknegro', url: 'https://www.tiktok.com/@juliox.dev' },
+  { name: 'YouTube', icon: 'mdi:youtube', url: 'https://www.youtube.com/@DevJulio' },
+  { name: 'Github', icon: 'mdi:github', url: 'https://github.com/DevJuliox' },
+
+];
+
+const webLinks = [
+  { name: 'My Blog', url: 'https://tumbercook.com/blog' }
+];
+
+const affiliateProducts = [
+  { name: 'Soporte para monitor doble', url: 'https://mercadolibre.com/sec/1MPivoN', color: 'bg-[#FF6B6B]' },
+  { name: 'Logitech Mouse MX Master 3s Grafito', url: 'https://mercadolibre.com/sec/2XdBrGH', color: 'bg-[#4ECDC4]' },
+  { name: 'Reposamuñecas Teclado 60% Negro', url: 'https://mercadolibre.com/sec/1kZyqoK', color: 'bg-[#45B7D1]' },
+];
+---
+
+<div class="bg-cover bg-center flex items-center justify-center p-4">
+  <div class="w-full max-w-4xl overflow-hidden">
+    <div class="">
+      <div class="flex flex-col items-center space-x-4">
+        <img src="/images/julio.png" alt="Julio dev" class="rounded-full w-24 h-24 object-cover border-4 border-green-400" />
+        <div>
+          <h1 class="text-3xl text-center font-bold text-black">Julio Dev</h1>
+          <p class="text-black/80">Programador web, entusiasta de la AI</p>
+        </div>
+      </div>
+      <div class=" flex flex-col justify-between items-center">
+        <div class="flex items-center space-x-2 text-black">
+          
+          <span>julioxdev@gmail.com</span>
+        </div>
+        <div class="text-black">18k Followers</div>
+      </div>
+      
+        
+        <div class="flex justify-center flex-wrap gap-6 mt-4">
+          {socialLinks.map((link) => (
+            <a href={link.url} target="_blank" rel="noopener noreferrer" class="flex items-center rounded-full transition duration-300">
+              <Icon name={link.icon} class="w-5 h-5" />
+              {/* <span>{link.name}</span> */}
+            </a>
+          ))}
+        </div>
+      
+      <div class="grid gap-4 mt-4">
+        
+        <div class="flex flex-col gap-2">
+          {affiliateProducts.map((product) => (
+            <a href={product.url} target="_blank" rel="noopener noreferrer" class={`flex items-center ${product.color} text-white px-4 py-2 rounded-md transition duration-300 hover:opacity-90`}>
+              <Icon name="mdi:shopping" class="w-6 h-6 mr-3" />
+              <span class="font-semibold">{product.name}</span>
+            </a>
+          ))}
+        </div>
+        <!-- <div>
+          <h3 class="text-lg font-semibold mb-2 text-black">Web Links</h3>
+          <div class="flex flex-wrap gap-2">
+            {webLinks.map((link) => (
+              <a href={link.url} target="_blank" rel="noopener noreferrer" class="bg-black/10 hover:bg-white/20 text-black px-4 py-2 rounded-full transition duration-300">
+                {link.name}
+              </a>
+            ))}
+          </div>
+        </div> -->
+
+       
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+<style>
+  [astro-icon] {
+    color: white;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+</style>
