@@ -1,9 +1,12 @@
 ---
+import GoogleAnalytics from "../GoogleAnalytics.astro";
+
 interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
+export { default as GoogleAnalytics } from "../GoogleAnalytics.astro";
 ---
 
 <!DOCTYPE html>
@@ -15,15 +18,7 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
     <!-- Otros metadatos -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SECVXXS0CC"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(...args:any) {
-        window.dataLayer.push(args);
-      }
-      gtag('js', new Date());
-      gtag('config', 'G-SECVXXS0CC');
-    </script>
+    <GoogleAnalytics id="G-SECVXXS0CC" />
 		<title>{title}</title>
 	</head>
 	<body>
