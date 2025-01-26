@@ -29,6 +29,21 @@ const categories = [
     icon: "mdi:discord",
   },
 ];
+
+const cursos = [
+  {
+    name: "30 Días de Python",
+    link: "https://www.youtube.com/watch?v=xPpfzzH5JK0&list=PLX25HjIQq0X7xE3vHvnwXI3a3OTDdysZJ&index=1",
+    description: "Aprende Python desde cero",
+    icon: "mdi:youtube",
+  },
+  {
+    name: "🔥Guía definitiva imágenes en tu página web",
+    link: "https://www.youtube.com/watch?v=NYH1akROptM",
+    description: "Aprende a colocar imágenes en html de manera correcta",
+    icon: "mdi:youtube",
+  },
+];
 ---
 
 <div class="">
@@ -92,6 +107,31 @@ const categories = [
       <div class="flex flex-col justify-center gap-3 mb-8">
         {
           categories.map((category) => (
+            <a
+              href={category.link}
+              class="border-2 border-orange-300 p-4 rounded-lg flex gap-4 items-center hover:bg-black/50 transition-colors"
+              target="_blank"
+            >
+              {category.icon && <Icon size={36} name={category.icon} />}
+              {/* {category.image && (
+                <img
+                  src={category.image}
+                  alt={category.name}
+                  class="w-5 h-5 object-cover rounded"
+                />
+              )} */}
+              <div>
+                <h3 class="font-medium text-lg">{category.name}</h3>
+                <div class="">{category.description}</div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+      <h2 class="text-xl font-bold mb-2">Cursos</h2>
+      <div class="flex flex-col justify-center gap-3 mb-8">
+        {
+          cursos.map((category) => (
             <a
               href={category.link}
               class="border-2 border-orange-300 p-4 rounded-lg flex gap-4 items-center hover:bg-black/50 transition-colors"
