@@ -32,6 +32,12 @@ const categories = [
 
 const cursos = [
   {
+    name: "Lives de Coppelbot",
+    link: "https://www.youtube.com/watch?v=HrRSNoTvr4M&list=PLX25HjIQq0X6Iqi-07UoVl_vECQ8ijRTk&index=1",
+    description: "Creamos un chatbot que nos muestra productos de Coppel",
+    icon: "mdi:youtube",
+  },
+  {
     name: "30 Días de Python",
     link: "https://www.youtube.com/watch?v=xPpfzzH5JK0&list=PLX25HjIQq0X7xE3vHvnwXI3a3OTDdysZJ&index=1",
     description: "Aprende Python desde cero",
@@ -109,18 +115,13 @@ const cursos = [
           categories.map((category) => (
             <a
               href={category.link}
-              class="border-2 border-orange-300 p-4 rounded-lg flex gap-4 items-center hover:bg-black/50 transition-colors"
+              class="border-2 border-orange-300 p-4 rounded-lg hover:bg-black/50 transition-colors grid grid-cols-[auto_1fr] items-center"
               target="_blank"
             >
-              {category.icon && <Icon size={36} name={category.icon} />}
-              {/* {category.image && (
-                <img
-                  src={category.image}
-                  alt={category.name}
-                  class="w-5 h-5 object-cover rounded"
-                />
-              )} */}
-              <div>
+              <div class="w-12 flex justify-center">
+                {category.icon && <Icon size={36} name={category.icon} />}
+              </div>
+              <div class="ml-4">
                 <h3 class="font-medium text-lg">{category.name}</h3>
                 <div class="">{category.description}</div>
               </div>
@@ -128,30 +129,50 @@ const cursos = [
           ))
         }
       </div>
+
+      {/* Cursos */}
       <h2 class="text-xl font-bold mb-2">Cursos</h2>
-      <div class="flex flex-col justify-center gap-3 mb-8">
+      <div class="gap-3 flex flex-col justify-center mb-8">
         {
           cursos.map((category) => (
             <a
               href={category.link}
-              class="border-2 border-orange-300 p-4 rounded-lg flex gap-4 items-center hover:bg-black/50 transition-colors"
+              class="border-2 border-orange-300 p-4 rounded-lg hover:bg-black/50 transition-colors grid grid-cols-[auto_1fr] items-center"
               target="_blank"
             >
-              {category.icon && <Icon size={36} name={category.icon} />}
-              {/* {category.image && (
-                <img
-                  src={category.image}
-                  alt={category.name}
-                  class="w-5 h-5 object-cover rounded"
-                />
-              )} */}
-              <div>
+              <div class="w-12 flex justify-center">
+                {category.icon && <Icon size={36} name={category.icon} />}
+              </div>
+              <div class="ml-4">
                 <h3 class="font-medium text-lg">{category.name}</h3>
                 <div class="">{category.description}</div>
               </div>
             </a>
           ))
         }
+      </div>
+
+      {/* coffe */}
+      <h2 class="text-xl font-bold mb-2">Buye a Coffe</h2>
+      <div class="flex flex-col justify-center gap-3 mb-8">
+        <a
+          href={"https://buymeacoffee.com/julioxdev"}
+          class="border-2 border-orange-300 p-4 rounded-lg flex gap-4 items-center hover:bg-black/50 transition-colors"
+          target="_blank"
+        >
+          <img
+            src={"./images/image.png"}
+            alt={"https://buymeacoffee.com/julioxdev"}
+            class="w-10 h-10 object-cover rounded"
+          />
+
+          <div>
+            <h3 class="font-medium text-lg">{"Para la bebida de los live"}</h3>
+            <div class="">
+              {"Para comprarme detalles y poder apoyar a la comunidad"}
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   </div>
