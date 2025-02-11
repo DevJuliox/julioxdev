@@ -2,6 +2,10 @@
 import { Icon } from "astro-icon/components";
 import { Mail } from "lucide-astro";
 import { Image } from "astro:assets";
+import { Button } from "./ui/button";
+import { CardContent, Card } from "./ui/card";
+import { Badge } from "./ui/badge";
+import { Github } from "lucide-react";
 const socialLinks = [
   {
     name: "TikTok",
@@ -50,6 +54,33 @@ const cursos = [
     icon: "mdi:youtube",
   },
 ];
+
+const projects = [
+  {
+    name: "Finance Bot",
+    icon: "📦",
+    description: "",
+    tech: ["Shadcn", "Next.js", "Tailwind CSS", "PostgreSQL", "Drizzle"],
+    link: "https://financebot-nine.vercel.app/",
+    github: false,
+  },
+  {
+    name: "Poke api",
+    icon: "",
+    description: "",
+    tech: ["Framer", "Next.js", "Css modules"],
+    link: "https://github.com/DevJuliox/poke-app",
+    github: true,
+  },
+  {
+    name: "Imagenes en html",
+    icon: "",
+    description: "",
+    tech: ["HTML", "Css"],
+    link: "https://github.com/DevJuliox/imagenes-en-html",
+    github: true,
+  },
+];
 ---
 
 <div class="">
@@ -58,13 +89,13 @@ const cursos = [
 
     {/* Profile Section */}
     <div class="mb-8">
-      <div class="mb-4 flex gap-6">
-        <div class="relative w-32 h-32">
+      <div class="mb-8 flex gap-6">
+        <div class="relative">
           <Image
             src="/images/juliox.png?height=128&width=128"
             alt="Profile"
-            width={128}
-            height={128}
+            width={76}
+            height={76}
             class="rounded-full object-cover aspect-square"
           />
         </div>
@@ -85,7 +116,7 @@ const cursos = [
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Icon size={24} name={link.icon} />
+                  <Icon size={14} name={link.icon} />
                   {/* <div class="">{link.name}</div> */}
                 </a>
               ))
@@ -93,23 +124,23 @@ const cursos = [
           </div>
         </div>
       </div>
-      <p class="my-4">
-        Soy desarrollador web Full Stack especializado en crear experiencias
-        digitales únicas. Creamos contenido educativo sobre programación y
-        tecnología, con streams diarios en TikTok, Twitch y YouTube donde
-        compartimos conocimiento, coding sessions y las últimas tendencias en
-        desarrollo web.
+      <p class="mb-8">
+        ¡Hola, soy <span class="font-semibold">Julio</span>! Desarrollador web
+        especializado en chatbots con interfaces interactivas y diversos LLM.
+        Realizo lives para compartir conocimientos y explorar las últimas
+        tendencias tecnológicas, siempre enfocado en transformar ideas en
+        soluciones digitales innovadoras.
       </p>
       {/* Stats */}
-      <div class="grid grid-cols-1 gap-4 mb-8">
+      <!-- <div class="grid grid-cols-1 gap-4 mb-8">
         <div>
           <div class="text-xl font-bold">20k</div>
           <div class="">Followers</div>
         </div>
-      </div>
+      </div> -->
 
       {/* Categories */}
-      <h2 class="text-xl font-bold mb-2">Comunidad</h2>
+      <!-- <h2 class="text-xl font-bold mb-2">Comunidad</h2>
       <div class="flex flex-col justify-center gap-3 mb-8">
         {
           categories.map((category) => (
@@ -128,10 +159,81 @@ const cursos = [
             </a>
           ))
         }
-      </div>
+      </div> -->
+
+      {/* Posts */}
+      <section class="space-y-6 mb-8">
+        <h2 class="text-lg font-semibold">Comunidad</h2>
+        {
+          categories.map((category) => {
+            return (
+              <Card className="bg-card  transition-colors">
+                <CardContent className="p-6 space-y-4">
+                  <h3 class="text-xl font-medium">{category.name} </h3>
+                  <p class="text-muted-foreground">{category.description}</p>
+                  <div class="flex items-center gap-4 text-sm text-muted-foreground">
+                    {/* <span>Tutorial</span>
+                    <span>May 31, 2024</span> */}
+                    <a
+                      href={category.link}
+                      class="ml-auto px-4 py-2 hover:bg-accent/50 rounded-lg transition-colors"
+                    >
+                      Unirme →
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })
+        }
+      </section>
+
+      {/* Projects */}
+      <section class="space-y-6 mb-8">
+        <div class="flex justify-between items-center">
+          <h2 class="text-lg font-semibold">Proyectos</h2>
+          <!-- <a>
+            More <span class="ml-2">→</span>
+          </a> -->
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          {
+            projects.map((project) => (
+              <Card key={project.name} className="bg-card">
+                <CardContent className="p-6 space-y-4">
+                  <div class="flex justify-between items-start">
+                    <a href={project.link} class="flex items-center gap-2">
+                      {project.icon}
+                      <h3 class="text-lg font-medium hover:underline cursor-pointer">
+                        {project.name} →
+                      </h3>
+                    </a>
+                    {project.github && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="h-5 w-5" />
+                      </a>
+                    )}
+                  </div>
+                  <p class="text-muted-foreground">{project.description}</p>
+                  <div class="flex flex-wrap gap-2">
+                    {project.tech.map((tech) => (
+                      <Badge variant="secondary">{tech}</Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))
+          }
+        </div>
+      </section>
 
       {/* Cursos */}
-      <h2 class="text-xl font-bold mb-2">Cursos</h2>
+      <h2 class="text-lg font-bold mb-2">Cursos</h2>
       <div class="gap-3 flex flex-col justify-center mb-8">
         {
           cursos.map((category) => (
@@ -153,7 +255,7 @@ const cursos = [
       </div>
 
       {/* coffe */}
-      <h2 class="text-xl font-bold mb-2">Buyme a Coffe</h2>
+      <h2 class="text-lg font-bold mb-4">Buyme a Coffe</h2>
       <div class="flex flex-col justify-center gap-3 mb-8">
         <a
           href={"https://buymeacoffee.com/julioxdev"}
