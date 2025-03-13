@@ -90,20 +90,20 @@ const projects = [
     {/* Profile Section */}
     <div class="mb-8">
       <div class="mb-8 flex gap-6">
-        <div class="relative">
+        <div class="relative aspect-[3/2] overflow-hidden">
           <Image
-            src="/images/juliox.png?height=128&width=128"
-            alt="Profile"
-            width={76}
-            height={76}
+            src="/images/juliox.png"
+            alt="Julio C."
+            width={40}
+            height={40}
             class="rounded-full object-cover aspect-square"
           />
         </div>
         <div>
-          <h1 class="text-3xl font-bold mb-1">Julio C.</h1>
+          <h1 class="text-xl font-bold mb-1">Julio C.</h1>
           <!-- <p class="mb-2">Programador web, entusiasta de la AI</p> -->
           <a href="mailto:julioxdev@gmail.com" class="inline-flex items-center">
-            <Mail size="24" name="mdi:email" class="w-4 h-4 mr-1" />
+            <Mail size="20" name="mdi:email" class="w-4 h-4 mr-1" />
             julioxdev@gmail.com
           </a>
           {/* Social Links */}
@@ -116,7 +116,7 @@ const projects = [
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Icon size={14} name={link.icon} />
+                  <Icon size={20} name={link.icon} />
                   {/* <div class="">{link.name}</div> */}
                 </a>
               ))
